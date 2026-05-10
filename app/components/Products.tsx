@@ -12,21 +12,6 @@ const products = [
     bullets: ["Checklists y flujos", "Cumplimiento y auditoría", "Indicadores clínicos/operativos"]
   },
   {
-    name: "Moniveo Medio Ambiente",
-    tagline: "Monitoreo y evidencia para cumplimiento ambiental.",
-    bullets: ["Registros y trazabilidad", "Alertas por umbral", "Reportes exportables"]
-  },
-  {
-    name: "Moniveo Comercio",
-    tagline: "Menos fricción en operaciones diarias, más control.",
-    bullets: ["Inventario básico", "Ventas y turnos", "Alertas de variaciones"]
-  },
-  {
-    name: "Moniveo Logística",
-    tagline: "Visibilidad de entregas, incidencias y tiempos.",
-    bullets: ["Seguimiento por etapas", "Incidencias y evidencias", "KPIs de ruta"]
-  },
-  {
     name: "Próximamente",
     tagline: "Una solución para un sector que hoy está desatendido.",
     bullets: ["En diseño", "Pilotos abiertos", "Feedback de clientes"]

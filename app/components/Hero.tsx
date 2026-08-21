@@ -3,26 +3,22 @@ import Container from "./Container";
 export default function Hero() {
   return (
     <section id="inicio" className="relative overflow-hidden">
-      {/* Subtle background accents */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="absolute -top-24 left-1/2 h-64 w-[42rem] -translate-x-1/2 rounded-full bg-zinc-100 blur-3xl" />
         <div className="absolute -bottom-20 right-[-6rem] h-60 w-60 rounded-full bg-zinc-100 blur-3xl" />
+        <div className="hero-grid absolute inset-0" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-white" />
       </div>
 
       <Container className="relative py-16 sm:py-20 lg:py-24">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="mx-auto inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-3 py-1 text-xs font-medium text-zinc-700 shadow-sm">
-            <span className="inline-block h-2 w-2 rounded-full bg-emerald-500" />
-            SaaS simple, medible y listo para operar
-          </p>
+        <div className="mx-auto max-w-4xl text-center">
 
-          <h1 className="mt-6 text-balance text-4xl font-semibold tracking-tight text-zinc-950 sm:text-5xl">
-            Soluciones tecnológicas diseñadas para operar en el mundo real.
+          <h1 className="mt-6 text-balance text-4xl font-semibold tracking-tight text-zinc-950 sm:text-6xl">
+            Software diseñado para simplificar operaciones complejas
           </h1>
 
           <p className="mt-5 text-pretty text-base leading-relaxed text-zinc-700 sm:text-lg">
-            Creamos aplicaciones modernas para empresas que necesitan más
-            control, mejor visibilidad y herramientas fáciles de usar.
+            Diseñamos plataformas que digitalizan procesos, reducen tareas manuales y ofrecen información clara para tomar mejores decisiones.
           </p>
 
           <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
@@ -40,9 +36,6 @@ export default function Hero() {
             </a>
           </div>
 
-          <p className="mt-6 text-xs text-zinc-500">
-            Sin compromiso • Implementación guiada • Soporte humano
-          </p>
         </div>
 
         {/* “Product preview” card */}
@@ -92,13 +85,6 @@ export default function Hero() {
                 </div>
               ))}
             </div>
-          </div>
-
-          <div className="mt-4 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-zinc-500">
-            <span>✅ Reportes claros</span>
-            <span>✅ Alertas inteligentes</span>
-            <span>✅ Configuración rápida</span>
-            <span>✅ Roles y permisos</span>
           </div>
         </div>
       </Container>

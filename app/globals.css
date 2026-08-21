@@ -21,6 +21,31 @@ html {
   outline-offset: 3px;
 }
 
+/* Soft tech grid behind the hero */
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(24, 24, 27, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(24, 24, 27, 0.045) 1px, transparent 1px);
+  background-size: 48px 48px;
+  background-position: center top;
+  mask-image: radial-gradient(
+    ellipse 80% 70% at 50% 35%,
+    #000 20%,
+    transparent 75%
+  );
+  animation: hero-grid-pulse 8s ease-in-out infinite;
+}
+
+@keyframes hero-grid-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
 /* If user prefers reduced motion, keep things calm */
 @media (prefers-reduced-motion: reduce) {
   html {

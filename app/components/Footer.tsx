@@ -1,23 +1,21 @@
 import Container from "./Container";
+import Logo from "./Logo";
 
 export default function Footer() {
   return (
     <footer className="border-t border-zinc-200/70 bg-white">
       <Container className="py-10">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex items-center gap-2">
-            <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-zinc-950 text-sm font-semibold text-white">
-              M
-            </span>
-            <div>
-              <p className="text-sm font-semibold text-zinc-950">Moniveo</p>
-              <p className="text-sm text-zinc-600">Soluciones SaaS para sectores olvidados</p>
-            </div>
+          <div className="flex flex-col gap-2">
+            <Logo className="h-5 w-auto" />
           </div>
 
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
             <a href="#productos" className="text-zinc-700 hover:text-zinc-950">
               Productos
+            </a>
+            <a href="#sobre-nosotros" className="text-zinc-700 hover:text-zinc-950">
+              Sobre nosotros
             </a>
             <a href="#como-funciona" className="text-zinc-700 hover:text-zinc-950">
               Cómo funciona

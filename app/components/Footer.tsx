@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Container from "./Container";
 import Logo from "./Logo";
 
@@ -11,21 +12,30 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
-            <a href="#productos" className="text-zinc-700 hover:text-zinc-950">
+            <a href="/#productos" className="text-zinc-700 hover:text-zinc-950">
               Productos
             </a>
-            <a href="#sobre-nosotros" className="text-zinc-700 hover:text-zinc-950">
+            <a href="/#sobre-nosotros" className="text-zinc-700 hover:text-zinc-950">
               Sobre nosotros
             </a>
-            <a href="#como-funciona" className="text-zinc-700 hover:text-zinc-950">
+            <a href="/#como-funciona" className="text-zinc-700 hover:text-zinc-950">
               Cómo funciona
             </a>
-            <a href="#faq" className="text-zinc-700 hover:text-zinc-950">
+            <a href="/#faq" className="text-zinc-700 hover:text-zinc-950">
               FAQ
             </a>
-            <a href="#cta" className="text-zinc-700 hover:text-zinc-950">
+            <a href="/#cta" className="text-zinc-700 hover:text-zinc-950">
               Demo
             </a>
+            <Link href="/support" className="text-zinc-700 hover:text-zinc-950">
+              Soporte
+            </Link>
+            <Link href="/privacy" className="text-zinc-700 hover:text-zinc-950">
+              Privacidad
+            </Link>
+            <Link href="/terms" className="text-zinc-700 hover:text-zinc-950">
+              Términos
+            </Link>
           </div>
         </div>
 

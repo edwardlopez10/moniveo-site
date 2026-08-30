@@ -64,7 +64,7 @@ export default function Navbar() {
           </div>
 
           <div className="ml-auto hidden items-center gap-3 lg:flex">
-            <a
+            {/* <a
               href="#cta"
               className="inline-flex h-12 min-w-[120px] items-center justify-center rounded-xl border border-zinc-300 bg-white px-7 text-sm font-semibold text-zinc-950 shadow-sm hover:bg-zinc-50"
               onClick={(e) => {
@@ -73,7 +73,7 @@ export default function Navbar() {
               }}
             >
               Ver demo
-            </a>
+            </a> */}
             <a
               href="#cta"
               className="inline-flex h-12 min-w-[125px] items-center justify-center rounded-xl bg-zinc-950 px-7 text-sm font-semibold text-white shadow-sm hover:bg-zinc-800"

@@ -1,14 +1,33 @@
 "use client";
 
 import Image from "next/image";
-import { useRef } from "react";
+import { useCallback, useRef } from "react";
+import { Turnstile } from "@marsidev/react-turnstile";
 import Container from "./Container";
+import FormSuccess from "./FormSuccess";
+import RequiredMark from "./RequiredMark";
+import { useContactForm } from "@/app/hooks/useContactForm";
 
 const GRID_CELL = 170;
 const GRID_CELL_XL = 180;
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+
+  const getPayload = useCallback(
+    () => ({ email: emailRef.current?.value ?? "" }),
+    []
+  );
+
+  const {
+    status,
+    errorMessage,
+    turnstileRef,
+    handleSubmit,
+    handleTurnstileVerify,
+    handleTurnstileError
+  } = useContactForm({ type: "hero", getPayload });
 
   function handlePointerMove(event: React.PointerEvent<HTMLElement>) {
     if (event.pointerType !== "mouse") return;
@@ -39,6 +58,8 @@ export default function Hero() {
     section.dataset.heroActive = "false";
   }
 
+  const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+
   return (
     <section
       id="inicio"
@@ -55,7 +76,6 @@ export default function Hero() {
         } as React.CSSProperties
       }
     >
-      {/* Background layers clipped to the hero bounds */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 overflow-hidden"
@@ -89,34 +109,71 @@ export default function Hero() {
               decisiones.
             </p>
 
-            <form
-              className="flex w-full max-w-[520px] flex-col gap-3 sm:flex-row sm:items-center sm:gap-2"
-              onSubmit={(e) => e.preventDefault()}
-              aria-label="Solicitar una demo"
-            >
-              <input
-                type="email"
-                name="email"
-                placeholder="Tu correo de trabajo"
-                autoComplete="email"
-                required
-                aria-label="Correo de trabajo"
-                className="box-border h-12 w-full min-w-0 flex-1 appearance-none rounded-xl border border-zinc-300 bg-white px-4 py-3 text-base leading-normal text-zinc-950 shadow-sm placeholder:text-zinc-400 focus:border-zinc-950 focus:outline-none sm:text-sm"
-              />
-              <button
-                type="submit"
-                className="inline-flex h-12 w-full shrink-0 items-center justify-center rounded-xl bg-zinc-950 px-7 text-base font-semibold text-white shadow-sm hover:bg-zinc-800 sm:w-auto sm:text-sm"
+            {status === "success" ? (
+              <FormSuccess className="w-full max-w-[520px]" />
+            ) : (
+              <form
+                className="flex w-full max-w-[520px] flex-col gap-2"
+                onSubmit={handleSubmit}
+                aria-label="Solicitar una demo"
+                noValidate
               >
-                Agendar demo
-              </button>
-            </form>
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:gap-2">
+                  <div className="flex w-full min-w-0 flex-1 flex-col gap-2">
+                    <label
+                      htmlFor="hero-email"
+                      className="text-xs font-semibold text-zinc-700"
+                    >
+                      Correo de trabajo <RequiredMark />
+                      <span className="sr-only">(requerido)</span>
+                    </label>
+                    <input
+                      ref={emailRef}
+                      id="hero-email"
+                      type="email"
+                      name="email"
+                      placeholder="tu@empresa.com"
+                      autoComplete="email"
+                      required
+                      disabled={status === "submitting"}
+                      aria-invalid={status === "error"}
+                      aria-describedby={errorMessage ? "hero-email-error" : undefined}
+                      className="box-border h-12 w-full min-w-0 flex-1 appearance-none rounded-xl border border-zinc-300 bg-white px-4 py-3 text-base leading-normal text-zinc-950 shadow-sm placeholder:text-zinc-400 focus:border-zinc-950 focus:outline-none disabled:opacity-60 sm:text-sm"
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    disabled={status === "submitting"}
+                    className="inline-flex h-12 w-full shrink-0 items-center justify-center rounded-xl bg-zinc-950 px-7 text-base font-semibold text-white shadow-sm hover:bg-zinc-800 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto sm:text-sm"
+                  >
+                    {status === "submitting" ? "Enviando…" : "Agendar demo"}
+                  </button>
+                </div>
+                {errorMessage ? (
+                  <p id="hero-email-error" role="alert" className="text-sm text-red-600">
+                    {errorMessage}
+                  </p>
+                ) : null}
+                {siteKey ? (
+                  <Turnstile
+                    ref={turnstileRef}
+                    siteKey={siteKey}
+                    options={{ size: "invisible" }}
+                    onSuccess={handleTurnstileVerify}
+                    onError={handleTurnstileError}
+                    onExpire={handleTurnstileError}
+                  />
+                ) : null}
+              </form>
+            )}
 
-            <p className="mt-2.5 text-sm text-zinc-500">
-              Sin compromiso. Te contactamos en menos de 24 horas.
-            </p>
+            {status !== "success" ? (
+              <p className="mt-2.5 text-sm text-zinc-500">
+                Sin compromiso. Te contactamos en menos de 24 horas.
+              </p>
+            ) : null}
           </div>
 
-          {/* Mobile: normal flow below copy */}
           <div className="mx-auto w-full max-w-md animate-fadeUp motion-reduce:animate-none lg:hidden">
             <Image
               src="/dashboard-mock.png"
@@ -129,12 +186,10 @@ export default function Hero() {
             />
           </div>
 
-          {/* Desktop spacer column — keeps two-column layout */}
           <div className="relative hidden lg:block" aria-hidden />
         </div>
       </Container>
 
-      {/* Desktop mockup: oversized, top-right focused, and bottom-cropped */}
       <div className="pointer-events-none absolute inset-y-0 left-1/2 right-0 z-10 hidden overflow-hidden lg:block">
         <div className="absolute bottom-10 left-10 right-0 top-10 overflow-hidden xl:bottom-12 xl:left-14 xl:top-12">
           <div className="absolute left-0 top-0 w-[clamp(900px,76vw,1080px)] max-w-none animate-fadeUp motion-reduce:animate-none xl:w-[1180px] 2xl:w-[1280px]">

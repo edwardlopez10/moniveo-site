@@ -7,12 +7,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "create-resend-template": "node scripts/create-resend-template.mjs"
   },
   "dependencies": {
+    "@marsidev/react-turnstile": "^1.6.1",
     "next": "16.2.6",
     "react": "19.2.6",
-    "react-dom": "19.2.6"
+    "react-dom": "19.2.6",
+    "resend": "^6.25.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.18",

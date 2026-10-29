@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     "Política de privacidad de Moniveo. Aplica a nuestros paneles web, aplicaciones móviles y servicios relacionados."
 };
 
-const lastUpdated = "30 de agosto de 2026";
+const lastUpdated = "28 de octubre de 2026";
 
 const sections = [
   {
@@ -31,7 +31,8 @@ const sections = [
           </li>
           <li>
             <strong>Aplicaciones móviles:</strong> aplicación para residentes y
-            aplicación para pacientes, disponibles en App Store y Google Play.
+            aplicación para pacientes, disponibles en App Store y Google Play, y
+            la aplicación de kiosco.
           </li>
           <li>
             <strong>Sitio web:</strong> moniveo.com y subdominios asociados.
@@ -252,17 +253,17 @@ const sections = [
     content: (
       <>
         <p>
-          Si tiene una cuenta en nuestras aplicaciones móviles o paneles web,
-          puede solicitar la eliminación de su cuenta y datos personales
-          asociados contactando a{" "}
+          Si es residente, puede eliminar su cuenta y los datos personales
+          asociados desde la aplicación, en Perfil → Privacidad. También puede
+          solicitar la eliminación contactando a{" "}
           <a
             href="mailto:privacidad@moniveo.com"
             className="text-zinc-950 underline decoration-zinc-300 underline-offset-2 hover:decoration-zinc-950"
           >
             privacidad@moniveo.com
-          </a>
-          . También puede solicitar la eliminación a través del administrador de
-          su organización (residencial o clínica), cuando corresponda.
+          </a>{" "}
+          o a través del administrador de su organización (residencial o
+          clínica), cuando corresponda.
         </p>
         <p className="mt-4">
           Procesaremos las solicitudes de eliminación en un plazo razonable.
@@ -288,8 +289,12 @@ const sections = [
             importantes.
           </li>
           <li>
-            <strong>Cámara o galería:</strong> para adjuntar documentos o
-            evidencia cuando la función lo requiera.
+            <strong>Cámara (aplicación de kiosco):</strong> para leer códigos QR
+            de acceso.
+          </li>
+          <li>
+            <strong>Cámara o galería (aplicaciones de residentes y pacientes):</strong>{" "}
+            para adjuntar documentos o evidencia cuando la función lo requiera.
           </li>
           <li>
             <strong>Ubicación:</strong> solo si una función específica lo
@@ -357,8 +362,9 @@ export default function PrivacyPage() {
             <p className="mt-6 text-base leading-relaxed text-zinc-700">
               Esta política aplica de forma unificada a todos los productos
               digitales de Moniveo, incluyendo paneles web de administración,
-              aplicaciones móviles para residentes y pacientes, y servicios
-              relacionados. Está diseñada para cumplir con los requisitos de
+              aplicaciones móviles para residentes y pacientes, la aplicación de
+              kiosco y servicios relacionados. Está diseñada para cumplir con los
+              requisitos de
               transparencia exigidos por Apple App Store, Google Play y la
               normativa de protección de datos aplicable.
             </p>

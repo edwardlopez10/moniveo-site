@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     "Política de privacidad de Moniveo. Aplica a nuestros paneles web, aplicaciones móviles y servicios relacionados."
 };
 
-const lastUpdated = "28 de octubre de 2026";
+const lastUpdated = "5 de noviembre de 2026";
 
 const sections = [
   {
@@ -26,13 +26,21 @@ const sections = [
         <ul className="mt-4 list-disc space-y-2 pl-5">
           <li>
             <strong>Paneles web de administración:</strong> plataforma para
-            administración de residenciales y edificios (Moniveo Residente) y
-            plataforma para clínicas y centros de salud (Moniveo Salud).
+            administración de residenciales y edificios, y plataforma para
+            clínicas y centros de salud (Moniveo Salud).
           </li>
           <li>
-            <strong>Aplicaciones móviles:</strong> aplicación para residentes y
-            aplicación para pacientes, disponibles en App Store y Google Play, y
-            la aplicación de kiosco.
+            <strong>Moniveo Residente:</strong> aplicación Android para
+            residentes, identificador{" "}
+            <span className="font-medium text-zinc-950">com.moni.resident</span>
+            , disponible en Google Play. Lo que esta aplicación recopila, usa,
+            comparte y elimina está en la sección 2. Esa sección prevalece sobre
+            el resto de esta política para esa aplicación.
+          </li>
+          <li>
+            <strong>Otras aplicaciones móviles:</strong> aplicación para
+            pacientes, disponible en App Store y Google Play, y la aplicación de
+            kiosco.
           </li>
           <li>
             <strong>Sitio web:</strong> moniveo.com y subdominios asociados.
@@ -47,7 +55,61 @@ const sections = [
     )
   },
   {
-    title: "2. Responsable del tratamiento",
+    title: "2. Moniveo Residente (aplicación Android)",
+    content: (
+      <>
+        <p>
+          Esta sección aplica únicamente a la aplicación Android Moniveo
+          Residente (
+          <span className="font-medium text-zinc-950">com.moni.resident</span>
+          ). El panel web de administración de residenciales es un producto
+          distinto. Si esta sección difiere del resto de la política, para
+          Moniveo Residente prevalece esta sección.
+        </p>
+        <p>
+          <strong>Datos que recopila:</strong> nombre, correo electrónico,
+          teléfono, credenciales de la cuenta, tokens de sesión, datos de la
+          residencia y de las visitas, fotos y PDF de comprobantes de pago, y
+          el token de notificaciones push.
+        </p>
+        <p>
+          <strong>Datos que no recopila:</strong> ubicación, datos de salud,
+          contactos, identificador de publicidad, ni datos de analítica o de
+          fallos.
+        </p>
+        <p>
+          <strong>Para qué se usan:</strong> iniciar sesión, gestionar visitas
+          y el acceso por código QR, subir comprobantes de pago, y enviar
+          notificaciones de visitas. La cámara y las fotos se usan solo para
+          subir un comprobante de pago a nuestro backend.
+        </p>
+        <p>
+          <strong>Con quién se comparten:</strong> con el backend de Moniveo y
+          con los proveedores que lo operan (hosting, base de datos,
+          almacenamiento de archivos y correo), y con los administradores de la
+          residencia del propio residente. Estos datos no se venden y no se
+          usan para publicidad.
+        </p>
+        <p>
+          <strong>Eliminación:</strong> puede eliminar su cuenta en la
+          aplicación, en Perfil → Privacidad y seguridad → Eliminar cuenta, o
+          escribiendo a{" "}
+          <a
+            href="mailto:privacidad@moniveo.com"
+            className="text-zinc-950 underline decoration-zinc-300 underline-offset-2 hover:decoration-zinc-950"
+          >
+            privacidad@moniveo.com
+          </a>
+          . Al eliminar la cuenta se eliminan las visitas y los datos del
+          perfil, y el registro de la cuenta se anonimiza. Los registros de pago
+          se conservan para contabilidad. El resto de los datos vinculados a la
+          cuenta del residente se elimina o se anonimiza.
+        </p>
+      </>
+    )
+  },
+  {
+    title: "3. Responsable del tratamiento",
     content: (
       <>
         <p>
@@ -69,12 +131,17 @@ const sections = [
     )
   },
   {
-    title: "3. Datos que recopilamos",
+    title: "4. Datos que recopilamos",
     content: (
       <>
         <p>
-          Dependiendo del servicio que utilice y de su rol (administrador,
-          residente, paciente, personal de clínica, etc.), podemos recopilar:
+          Los datos de Moniveo Residente son los de la sección 2. Esa
+          aplicación no recopila ubicación, datos de salud, contactos,
+          identificador de publicidad, ni datos de analítica o de fallos. El
+          único identificador de dispositivo que envía es el token de
+          notificaciones push. En los demás productos, y según su rol
+          (administrador, paciente, personal de clínica u otro), podemos
+          recopilar:
         </p>
         <ul className="mt-4 list-disc space-y-2 pl-5">
           <li>
@@ -91,22 +158,22 @@ const sections = [
             actividad dentro de la plataforma y registros operativos.
           </li>
           <li>
-            <strong>Datos de salud (Moniveo Salud y app de pacientes):</strong>{" "}
+            <strong>Datos de salud (solo Moniveo Salud y la aplicación para pacientes):</strong>{" "}
             únicamente cuando sea necesario para la prestación del servicio y
             conforme a la legislación aplicable. Estos datos reciben protección
-            reforzada.
+            reforzada. Moniveo Residente no recopila datos de salud.
           </li>
           <li>
-            <strong>Datos del dispositivo y técnicos:</strong> tipo de
-            dispositivo, sistema operativo, versión de la app, dirección IP,
-            identificadores del dispositivo, registros de errores y métricas de
-            rendimiento.
+            <strong>Datos del dispositivo y técnicos (productos distintos de Moniveo Residente):</strong>{" "}
+            tipo de dispositivo, sistema operativo, versión de la app, dirección
+            IP, identificadores del dispositivo, registros de errores y métricas
+            de rendimiento.
           </li>
           <li>
-            <strong>Datos de ubicación:</strong> solo si usted otorga permiso
-            explícito en la aplicación móvil y cuando sea necesario para
-            funciones específicas (por ejemplo, control de accesos o servicios
-            en sitio).
+            <strong>Datos de ubicación (productos distintos de Moniveo Residente):</strong>{" "}
+            solo si usted otorga permiso explícito y cuando sea necesario para
+            una función concreta. Moniveo Residente no recopila ubicación ni
+            solicita ese permiso.
           </li>
           <li>
             <strong>Comunicaciones:</strong> mensajes enviados a soporte,
@@ -122,7 +189,7 @@ const sections = [
     )
   },
   {
-    title: "4. Cómo utilizamos sus datos",
+    title: "5. Cómo utilizamos sus datos",
     content: (
       <>
         <p>Utilizamos la información personal para:</p>
@@ -138,7 +205,10 @@ const sections = [
             consentimiento, comunicaciones informativas.
           </li>
           <li>Mejorar la seguridad, detectar fraudes y prevenir abusos.</li>
-          <li>Analizar el uso agregado para mejorar producto y rendimiento.</li>
+          <li>
+            En productos distintos de Moniveo Residente, analizar el uso
+            agregado para mejorar el producto y el rendimiento.
+          </li>
           <li>Cumplir obligaciones legales y responder a requerimientos válidos.</li>
         </ul>
         <p className="mt-4">
@@ -149,7 +219,7 @@ const sections = [
     )
   },
   {
-    title: "5. Base legal y consentimiento",
+    title: "6. Base legal y consentimiento",
     content: (
       <p>
         Tratamos datos personales cuando es necesario para ejecutar un contrato
@@ -164,15 +234,18 @@ const sections = [
     )
   },
   {
-    title: "6. Compartición con terceros",
+    title: "7. Compartición con terceros",
     content: (
       <>
         <p>Podemos compartir información con:</p>
         <ul className="mt-4 list-disc space-y-2 pl-5">
           <li>
             <strong>Proveedores de infraestructura:</strong> hosting, bases de
-            datos, almacenamiento, analítica técnica y servicios de correo,
-            bajo acuerdos de confidencialidad y procesamiento de datos.
+            datos, almacenamiento de archivos y servicios de correo, bajo
+            acuerdos de confidencialidad y procesamiento de datos. La analítica
+            técnica corresponde a productos distintos de Moniveo Residente. Esa
+            aplicación no comparte datos con proveedores de analítica ni de
+            registro de fallos.
           </li>
           <li>
             <strong>Organizaciones cliente:</strong> cuando accede a Moniveo a
@@ -193,7 +266,7 @@ const sections = [
     )
   },
   {
-    title: "7. Transferencias internacionales",
+    title: "8. Transferencias internacionales",
     content: (
       <p>
         Sus datos pueden procesarse en servidores ubicados fuera de su país de
@@ -204,7 +277,7 @@ const sections = [
     )
   },
   {
-    title: "8. Retención de datos",
+    title: "9. Retención de datos",
     content: (
       <p>
         Conservamos los datos personales mientras su cuenta esté activa, mientras
@@ -212,12 +285,15 @@ const sections = [
         contratante mantenga la relación con Moniveo, o durante el plazo exigido
         por ley. Posteriormente, eliminamos o anonimizamos la información de
         forma segura, salvo que debamos conservarla por obligaciones legales o
-        resolución de disputas.
+        resolución de disputas. En Moniveo Residente, la eliminación de la cuenta
+        se rige por la sección 2: se eliminan las visitas y los datos del perfil,
+        el registro de la cuenta se anonimiza, y los registros de pago se
+        conservan para contabilidad.
       </p>
     )
   },
   {
-    title: "9. Seguridad",
+    title: "10. Seguridad",
     content: (
       <p>
         Aplicamos medidas técnicas y organizativas diseñadas para proteger sus
@@ -230,7 +306,7 @@ const sections = [
     )
   },
   {
-    title: "10. Sus derechos",
+    title: "11. Sus derechos",
     content: (
       <>
         <p>
@@ -249,13 +325,26 @@ const sections = [
     )
   },
   {
-    title: "11. Eliminación de cuenta",
+    title: "12. Eliminación de cuenta",
     content: (
       <>
         <p>
-          Si es residente, puede eliminar su cuenta y los datos personales
-          asociados desde la aplicación, en Perfil → Privacidad. También puede
-          solicitar la eliminación contactando a{" "}
+          En Moniveo Residente puede eliminar su cuenta en la aplicación, en
+          Perfil → Privacidad y seguridad → Eliminar cuenta, o escribiendo a{" "}
+          <a
+            href="mailto:privacidad@moniveo.com"
+            className="text-zinc-950 underline decoration-zinc-300 underline-offset-2 hover:decoration-zinc-950"
+          >
+            privacidad@moniveo.com
+          </a>
+          . Al eliminar la cuenta se eliminan las visitas y los datos del
+          perfil, y el registro de la cuenta se anonimiza. Los registros de pago
+          se conservan para contabilidad. El resto de los datos vinculados a esa
+          cuenta se elimina o se anonimiza.
+        </p>
+        <p>
+          En las demás aplicaciones y paneles, puede solicitar la eliminación
+          escribiendo a{" "}
           <a
             href="mailto:privacidad@moniveo.com"
             className="text-zinc-950 underline decoration-zinc-300 underline-offset-2 hover:decoration-zinc-950"
@@ -263,19 +352,16 @@ const sections = [
             privacidad@moniveo.com
           </a>{" "}
           o a través del administrador de su organización (residencial o
-          clínica), cuando corresponda.
-        </p>
-        <p className="mt-4">
-          Procesaremos las solicitudes de eliminación en un plazo razonable.
-          Algunos datos pueden conservarse cuando la ley lo requiera o cuando sea
-          necesario para fines legítimos como prevención de fraude o cumplimiento
-          normativo.
+          clínica), cuando corresponda. Procesaremos esas solicitudes en un
+          plazo razonable. Algunos datos pueden conservarse cuando la ley lo
+          requiera o cuando sea necesario para fines legítimos como prevención
+          de fraude o cumplimiento normativo.
         </p>
       </>
     )
   },
   {
-    title: "12. Permisos en aplicaciones móviles",
+    title: "13. Permisos en aplicaciones móviles",
     content: (
       <>
         <p>
@@ -293,12 +379,17 @@ const sections = [
             de acceso.
           </li>
           <li>
-            <strong>Cámara o galería (aplicaciones de residentes y pacientes):</strong>{" "}
-            para adjuntar documentos o evidencia cuando la función lo requiera.
+            <strong>Cámara y fotos en Moniveo Residente:</strong> solo para
+            subir un comprobante de pago, en imagen o PDF, a nuestro backend.
           </li>
           <li>
-            <strong>Ubicación:</strong> solo si una función específica lo
-            necesita y usted lo autoriza.
+            <strong>Cámara o galería en otras aplicaciones:</strong> para
+            adjuntar documentos o evidencia cuando la función lo requiera.
+          </li>
+          <li>
+            <strong>Ubicación:</strong> Moniveo Residente no solicita este
+            permiso. Otras aplicaciones pueden solicitarlo solo si una función
+            específica lo necesita y usted lo autoriza.
           </li>
         </ul>
         <p className="mt-4">
@@ -310,7 +401,7 @@ const sections = [
     )
   },
   {
-    title: "13. Cookies y tecnologías similares",
+    title: "14. Cookies y tecnologías similares",
     content: (
       <p>
         Nuestros sitios web y paneles pueden utilizar cookies y tecnologías
@@ -322,7 +413,7 @@ const sections = [
     )
   },
   {
-    title: "14. Cambios a esta política",
+    title: "15. Cambios a esta política",
     content: (
       <p>
         Podemos actualizar esta Política de Privacidad ocasionalmente.
@@ -360,12 +451,14 @@ export default function PrivacyPage() {
               Última actualización: {lastUpdated}
             </p>
             <p className="mt-6 text-base leading-relaxed text-zinc-700">
-              Esta política aplica de forma unificada a todos los productos
-              digitales de Moniveo, incluyendo paneles web de administración,
-              aplicaciones móviles para residentes y pacientes, la aplicación de
-              kiosco y servicios relacionados. Está diseñada para cumplir con los
-              requisitos de
-              transparencia exigidos por Apple App Store, Google Play y la
+              Esta política cubre los productos digitales de Moniveo. La sección
+              2 describe solo la aplicación Android Moniveo Residente
+              (com.moni.resident) y prevalece sobre el resto de la política para
+              esa aplicación. El panel web de administración de residenciales es
+              un producto distinto. La política también cubre Moniveo Salud, la
+              aplicación para pacientes, la aplicación de kiosco y el sitio web,
+              y está redactada para cumplir los requisitos de Apple App Store,
+              Google Play y la
               normativa de protección de datos aplicable.
             </p>
           </div>
@@ -384,7 +477,7 @@ export default function PrivacyPage() {
 
             <section className="rounded-2xl border border-zinc-200 bg-zinc-50 p-6">
               <h2 className="text-lg font-semibold tracking-tight text-zinc-950">
-                15. Contacto
+                16. Contacto
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-zinc-700">
                 Para preguntas sobre esta política o sobre el tratamiento de sus
